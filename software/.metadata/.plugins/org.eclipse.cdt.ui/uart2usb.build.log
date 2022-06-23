@@ -1,0 +1,23 @@
+17:32:50 **** Build of configuration Nios II for project uart2usb ****
+make all 
+Info: Building ../uart2usb_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../uart2usb_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../uart2usb_bsp//HAL/inc -I../uart2usb_bsp/ -I../uart2usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+In file included from ../uart2usb_bsp//drivers/inc/altera_avalon_pio_regs.h:34:0,
+                 from hello_world.c:3:
+hello_world.c: In function 'main':
+../uart2usb_bsp//HAL/inc/io.h:75:3: error: expected ';' before '__builtin_stwio'
+   __builtin_stwio (__IO_CALC_ADDRESS_NATIVE ((BASE), (REGNUM)), (DATA))
+   ^
+../uart2usb_bsp//drivers/inc/altera_avalon_pio_regs.h:38:55: note: in expansion of macro 'IOWR'
+ #define IOWR_ALTERA_AVALON_PIO_DATA(base, data)       IOWR(base, 0, data)
+                                                       ^
+hello_world.c:33:3: note: in expansion of macro 'IOWR_ALTERA_AVALON_PIO_DATA'
+   IOWR_ALTERA_AVALON_PIO_DATA(PIO_0_BASE, 0x4);
+   ^
+make: *** [obj/default/hello_world.o] Error 1
+
+17:32:50 Build Finished (took 743ms)
+
